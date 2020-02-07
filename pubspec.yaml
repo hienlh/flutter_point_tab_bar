@@ -1,8 +1,7 @@
 name: flutter_point_tab_bar
 description: A new Flutter package.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/hienlh/flutter_point_tab_bar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

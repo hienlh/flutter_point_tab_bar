@@ -1,14 +1,28 @@
-# flutter_point_tabbar
+# flutter_point_tab_bar
 
-A new Flutter package.
+A tab bar widget with point indicator.
 
-## Getting Started
+# Demo
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+![Demo](https://github.com/hienlh/flutter_point_tab_bar/raw/master/video1.gif)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# Usage
+
+```dart
+PointTabBar(
+    controller: _tabController,
+    indicator: PointTabIndicator(
+        color: Colors.white,
+        insets: EdgeInsets.only(bottom: 4),
+    ),
+    tabs: tabList.map((item) {
+        return PointTab(
+            text: item,
+        );
+    }).toList(),
+)
+```
+
+# Example
+
+Please run the app in the [`example/`](https://github.com/hienlh/flutter_point_tab_bar/tree/master/example) folder to start playing!
