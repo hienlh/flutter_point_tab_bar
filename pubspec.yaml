@@ -1,6 +1,6 @@
 name: flutter_point_tab_bar
-description: A new Flutter package.
-version: 0.0.1
+description: A tab bar widget for Flutter with point indicator.
+version: 0.0.2
 homepage: https://github.com/hienlh/flutter_point_tab_bar
 
 environment:
