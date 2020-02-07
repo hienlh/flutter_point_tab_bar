@@ -3,18 +3,20 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+enum PointTabIndicatorPosition { top, bottom }
+
 class PointTabIndicator extends Decoration {
   const PointTabIndicator({
     this.color = Colors.black,
-    this.marginBottom = 6,
     this.insets = EdgeInsets.zero,
+    this.position = PointTabIndicatorPosition.bottom,
   }) : assert(insets != null);
 
   final Color color;
 
-  final double marginBottom;
-
   final EdgeInsetsGeometry insets;
+
+  final PointTabIndicatorPosition position;
 
   @override
   Decoration lerpFrom(Decoration a, double t) {
@@ -51,7 +53,7 @@ class _PointPainter extends BoxPainter {
 
   Color get color => decoration.color;
 
-  double get width => decoration.marginBottom;
+  PointTabIndicatorPosition get position => decoration.position;
 
   EdgeInsetsGeometry get insets => decoration.insets;
 
@@ -72,8 +74,11 @@ class _PointPainter extends BoxPainter {
     canvas.drawPoints(
         PointMode.points,
         [
-          Offset(indicator.left + indicator.width / 2,
-              indicator.bottom - width / 2)
+          Offset(
+              indicator.left + indicator.width / 2,
+              position == PointTabIndicatorPosition.bottom
+                  ? indicator.bottom
+                  : indicator.top)
         ],
         paint);
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_point_tab_bar/pointTabBar.dart';
 import 'package:flutter_point_tab_bar/pointTabIndicator.dart';
 
 class TestScreen extends StatefulWidget {
@@ -25,14 +24,15 @@ class _TestScreenState extends State<TestScreen>
       appBar: AppBar(
         title: Text('Point Tab Bar'),
         centerTitle: true,
-        bottom: PointTabBar(
+        bottom: TabBar(
           controller: _tabController,
           indicator: PointTabIndicator(
+            position: PointTabIndicatorPosition.bottom,
             color: Colors.white,
-            insets: EdgeInsets.only(bottom: 4),
+            insets: EdgeInsets.only(bottom: 6),
           ),
           tabs: tabList.map((item) {
-            return PointTab(
+            return Tab(
               text: item,
             );
           }).toList(),
