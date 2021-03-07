@@ -10,7 +10,7 @@ class TestScreen extends StatefulWidget {
 class _TestScreenState extends State<TestScreen>
     with SingleTickerProviderStateMixin {
   final tabList = ['Tab 1', 'Tab 2'];
-  TabController _tabController;
+  late TabController _tabController;
 
   @override
   void initState() {
