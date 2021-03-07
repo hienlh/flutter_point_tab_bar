@@ -10,7 +10,7 @@ class PointTabIndicator extends Decoration {
     this.color = Colors.black,
     this.insets = EdgeInsets.zero,
     this.position = PointTabIndicatorPosition.bottom,
-  }) : assert(insets != null);
+  });
 
   final Color color;
 
@@ -19,35 +19,33 @@ class PointTabIndicator extends Decoration {
   final PointTabIndicatorPosition position;
 
   @override
-  Decoration lerpFrom(Decoration a, double t) {
+  Decoration? lerpFrom(Decoration? a, double t) {
     if (a is PointTabIndicator) {
       return PointTabIndicator(
-        insets: EdgeInsetsGeometry.lerp(a.insets, insets, t),
+        insets: EdgeInsetsGeometry.lerp(a.insets, insets, t)!,
       );
     }
     return super.lerpFrom(a, t);
   }
 
   @override
-  Decoration lerpTo(Decoration b, double t) {
+  Decoration? lerpTo(Decoration? b, double t) {
     if (b is PointTabIndicator) {
       return PointTabIndicator(
-        insets: EdgeInsetsGeometry.lerp(insets, b.insets, t),
+        insets: EdgeInsetsGeometry.lerp(insets, b.insets, t)!,
       );
     }
     return super.lerpTo(b, t);
   }
 
   @override
-  _PointPainter createBoxPainter([VoidCallback onChanged]) {
+  _PointPainter createBoxPainter([VoidCallback? onChanged]) {
     return _PointPainter(this, onChanged);
   }
 }
 
 class _PointPainter extends BoxPainter {
-  _PointPainter(this.decoration, VoidCallback onChanged)
-      : assert(decoration != null),
-        super(onChanged);
+  _PointPainter(this.decoration, VoidCallback? onChanged) : super(onChanged);
 
   final PointTabIndicator decoration;
 
@@ -59,11 +57,10 @@ class _PointPainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    assert(configuration != null);
     assert(configuration.size != null);
 
-    final Rect rect = offset & configuration.size;
-    final TextDirection textDirection = configuration.textDirection;
+    final Rect rect = offset & configuration.size!;
+    final TextDirection? textDirection = configuration.textDirection;
     final Rect indicator = insets.resolve(textDirection).deflateRect(rect);
 
     final Paint paint = Paint()
