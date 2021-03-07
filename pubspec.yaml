@@ -1,6 +1,6 @@
 name: flutter_point_tab_bar
 description: A tab bar widget for Flutter with point indicator. It work on both Android and IOS.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/hienlh/flutter_point_tab_bar
 
 environment:
